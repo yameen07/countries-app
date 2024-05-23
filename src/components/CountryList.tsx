@@ -4,7 +4,6 @@ import { fetchAllCountries } from "../api";
 import CountryCard from "./CountryCard";
 import { Country } from "../types";
 import SearchFilter from "./SearchFilter";
-import { log } from "console";
 
 const CountryListContainer = styled.div`
   display: flex;
