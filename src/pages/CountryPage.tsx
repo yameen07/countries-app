@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchCountryByName } from "../api";
+import { fetchCountries } from "../api";
 import { Country } from "../types";
 import styled from "styled-components";
 
@@ -10,7 +10,7 @@ const CountryPage: React.FC = () => {
 
   useEffect(() => {
     if (name) {
-      fetchCountryByName(name)
+      fetchCountries(name)
         .then((response) => setCountry(response[0]))
         .catch((error) => console.error("Error fetching country:", error));
     }

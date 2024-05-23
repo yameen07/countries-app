@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { fetchAllCountries } from "../api";
+import { fetchCountries } from "../api";
 import CountryCard from "./CountryCard";
 import { Country } from "../types";
 import SearchFilter from "./SearchFilter";
@@ -20,7 +20,7 @@ const CountryList: React.FC = () => {
   const [region, setRegion] = useState("");
 
   useEffect(() => {
-    fetchAllCountries().then((response) => {
+    fetchCountries().then((response) => {
       setCountries(response);
       setFilteredCountries(response);
     });
@@ -41,12 +41,6 @@ const CountryList: React.FC = () => {
 
     setFilteredCountries(filtered);
   }, [searchTerm, region, countries]);
-
-  useEffect(() => {
-    fetchAllCountries().then((response) => {
-      setCountries(response);
-    });
-  }, []);
 
   return (
     <>
